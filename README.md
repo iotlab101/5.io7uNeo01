@@ -5,7 +5,7 @@ This is a sample nodered flow project with the io7 IOT Platform.
 
 It lets select the color and send it to the io7 device which colors the neopixels. The following is the io7 device with io7fupython library.
 ```python
-from IO7FuPython import Device, ConfiguredDevice
+from IO7FuPython import ConfiguredDevice
 import json
 import time
 import ComMgr
