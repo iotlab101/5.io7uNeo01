@@ -1,1 +1,259 @@
-[]
+[
+    {
+        "id": "3b8d37a6d4b202c3",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e5e35b888e759074",
+        "type": "io7-hub",
+        "name": "app",
+        "host": "mqtt",
+        "useTLS": false,
+        "knownPort": true,
+        "port": "1883",
+        "tls": ""
+    },
+    {
+        "id": "23e3a7733e2f1fdb",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "15efee548742ca98",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "15efee548742ca98",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "fc2c2ebfd998e5cf",
+        "type": "io7 out",
+        "z": "3b8d37a6d4b202c3",
+        "authentication": "e5e35b888e759074",
+        "name": "lux1",
+        "deviceId": "neo1",
+        "cmd": "color",
+        "fmt": "json",
+        "qos": "0",
+        "retain": "false",
+        "x": 690,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "b94106e2629b20f1",
+        "type": "inject",
+        "z": "3b8d37a6d4b202c3",
+        "name": "{\"r\":255,\"g\":35,\"b\":0}",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"d\":{\"color\":{\"r\":255,\"g\":35,\"b\":0}}}",
+        "payloadType": "json",
+        "x": 480,
+        "y": 340,
+        "wires": [
+            [
+                "fc2c2ebfd998e5cf"
+            ]
+        ]
+    },
+    {
+        "id": "c541d2bfeeae969b",
+        "type": "inject",
+        "z": "3b8d37a6d4b202c3",
+        "name": "{\"r\":0,\"g\":0,\"b\":0}",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"d\":{\"color\":{\"r\":0,\"g\":0,\"b\":0}}}",
+        "payloadType": "json",
+        "x": 460,
+        "y": 380,
+        "wires": [
+            [
+                "fc2c2ebfd998e5cf"
+            ]
+        ]
+    },
+    {
+        "id": "ac6a6a0fb290cc38",
+        "type": "ui_colour_picker",
+        "z": "3b8d37a6d4b202c3",
+        "name": "picker",
+        "label": "",
+        "group": "23e3a7733e2f1fdb",
+        "format": "rgb",
+        "outformat": "object",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "ec89fe63763c2c99"
+            ]
+        ]
+    },
+    {
+        "id": "ec89fe63763c2c99",
+        "type": "function",
+        "z": "3b8d37a6d4b202c3",
+        "name": "color",
+        "func": "msg.payload = {\n    \"d\" : {\n        \"color\" : {\n            \"r\" : msg.payload.r,\n            \"g\": msg.payload.g,\n            \"b\": msg.payload.b\n        }\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 520,
+        "wires": [
+            [
+                "fc2c2ebfd998e5cf"
+            ]
+        ]
+    },
+    {
+        "id": "0f62fc20e97b853b",
+        "type": "ui_switch",
+        "z": "3b8d37a6d4b202c3",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "23e3a7733e2f1fdb",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 410,
+        "y": 460,
+        "wires": [
+            [
+                "2e19d7720a79f01d"
+            ]
+        ]
+    },
+    {
+        "id": "2e19d7720a79f01d",
+        "type": "function",
+        "z": "3b8d37a6d4b202c3",
+        "name": "on/off",
+        "func": "if (msg.payload) {\n    msg.payload = {\n        \"d\": {\n            \"color\": {\n                \"r\": 255,\n                \"g\": 35,\n                \"b\": 0\n            }\n        }\n    }\n} else {\n    msg.payload = {\n        \"d\": {\n            \"color\": {\n                \"r\": 0,\n                \"g\": 0,\n                \"b\": 0\n            }\n        }\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 460,
+        "wires": [
+            [
+                "fc2c2ebfd998e5cf"
+            ]
+        ]
+    },
+    {
+        "id": "02c94291c6955283",
+        "type": "function",
+        "z": "3b8d37a6d4b202c3",
+        "name": "on/off ?",
+        "func": "let off_state = { \"r\": 0, \"g\": 0, \"b\": 0 };\nfunction isEqual(a, b) {\n    for(let c in a) {\n        if (a[c] != b[c]) {\n            return false;\n        }\n    }\n    return true;\n}\nif (isEqual(msg.payload.d.color, off_state)) {\n    msg.payload = false;\n} else {\n    msg.payload = true;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 460,
+        "wires": [
+            [
+                "0f62fc20e97b853b"
+            ]
+        ]
+    },
+    {
+        "id": "68546e42231b140c",
+        "type": "io7 in",
+        "z": "3b8d37a6d4b202c3",
+        "name": "",
+        "deviceId": "neo1",
+        "authentication": "e5e35b888e759074",
+        "evt": "status",
+        "fmt": "json",
+        "qos": "0",
+        "allDevices": false,
+        "allEvents": false,
+        "allFormats": false,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "02c94291c6955283"
+            ]
+        ]
+    }
+]
