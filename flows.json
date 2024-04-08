@@ -146,7 +146,7 @@
         "type": "function",
         "z": "3b8d37a6d4b202c3",
         "name": "color",
-        "func": "msg.payload = {\n    \"d\" : {\n        \"color\" : {\n            \"r\" : msg.payload.r,\n            \"g\": msg.payload.g,\n            \"b\": msg.payload.b\n        }\n    }\n}\nreturn msg;",
+        "func": "msg.payload = {\n    \"d\" : {\n        \"color\" : {\n            \"r\" : msg.payload.r,\n            \"g\" : msg.payload.g,\n            \"b\" : msg.payload.b\n        }\n    }\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -252,7 +252,28 @@
         "y": 460,
         "wires": [
             [
-                "02c94291c6955283"
+                "02c94291c6955283",
+                "494eb6ebc59a3fd8"
+            ]
+        ]
+    },
+    {
+        "id": "494eb6ebc59a3fd8",
+        "type": "function",
+        "z": "3b8d37a6d4b202c3",
+        "name": "color",
+        "func": "msg.payload = {\n    \"r\" : msg.payload.d.color.r,\n    \"g\" : msg.payload.d.color.g,\n    \"b\" : msg.payload.d.color.b\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 520,
+        "wires": [
+            [
+                "ac6a6a0fb290cc38"
             ]
         ]
     }
