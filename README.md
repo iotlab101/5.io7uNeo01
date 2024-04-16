@@ -39,9 +39,8 @@ lastPub = time.ticks_ms() - device.meta['pubInterval']
 setPixel(color)
 
 while True:
-    if device.replMode():
+    if not device.loop():
         break
-    device.loop()
     if (time.ticks_ms() - device.meta['pubInterval']) > lastPub:
         lastPub = time.ticks_ms()
         device.publishEvent('status', json.dumps({'d':{'color': color}}))
