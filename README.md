@@ -1,4 +1,4 @@
-io7neo
+io7uNeo
 ======
 
 This is a sample nodered flow project with the io7 IOT Platform.
