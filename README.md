@@ -8,7 +8,7 @@ It lets select the color and send it to the io7 device which colors the neopixel
 from IO7FuPython import ConfiguredDevice
 import json
 import time
-import ComMgr
+import uComMgr32
 import neopixel
 from machine import Pin
 
@@ -28,7 +28,7 @@ def handleCommand(topic, msg):
         setPixel(color)
         lastPub = - device.meta['pubInterval']
 
-nic = ComMgr.startWiFi('io7lux')
+nic = uComMgr32.startWiFi('io7lux')
 device = ConfiguredDevice()
 device.setUserCommand(handleCommand)
 
