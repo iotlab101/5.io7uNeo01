@@ -2,6 +2,7 @@ io7uNeo
 ======
 
 This is a sample nodered flow project with the io7 IOT Platform.
+<img width="867" height="321" alt="Screenshot 2025-10-01 at 10 54 28 PM" src="https://github.com/user-attachments/assets/a10da3a1-066d-408d-8281-85ff41359f5a" />
 
 It lets select the color and send it to the io7 device which colors the neopixels. The following is the io7 device with io7fupython library.
 ```python
@@ -45,3 +46,4 @@ while True:
         lastPub = time.ticks_ms()
         device.publishEvent('status', json.dumps({'d':{'color': color}}))
 ```
+<img width="900" height="473" alt="Screenshot 2025-10-01 at 10 54 50 PM" src="https://github.com/user-attachments/assets/4f616f71-a4d7-4d2e-b5cc-9ea50b9b50c2" />
