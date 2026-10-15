@@ -8,35 +8,6 @@
         "env": []
     },
     {
-        "id": "e5e35b888e759074",
-        "type": "io7-hub",
-        "name": "app",
-        "host": "mqtt",
-        "useTLS": false,
-        "knownPort": true,
-        "port": "1883",
-        "tls": ""
-    },
-    {
-        "id": "23e3a7733e2f1fdb",
-        "type": "ui_group",
-        "name": "Default",
-        "tab": "15efee548742ca98",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "15efee548742ca98",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
         "id": "fc2c2ebfd998e5cf",
         "type": "io7 out",
         "z": "3b8d37a6d4b202c3",
@@ -110,38 +81,6 @@
         ]
     },
     {
-        "id": "ac6a6a0fb290cc38",
-        "type": "ui_colour_picker",
-        "z": "3b8d37a6d4b202c3",
-        "name": "picker",
-        "label": "",
-        "group": "23e3a7733e2f1fdb",
-        "format": "rgb",
-        "outformat": "object",
-        "showSwatch": true,
-        "showPicker": false,
-        "showValue": false,
-        "showHue": false,
-        "showAlpha": false,
-        "showLightness": true,
-        "square": "false",
-        "dynOutput": "false",
-        "order": 2,
-        "width": "3",
-        "height": "3",
-        "passthru": false,
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 410,
-        "y": 520,
-        "wires": [
-            [
-                "ec89fe63763c2c99"
-            ]
-        ]
-    },
-    {
         "id": "ec89fe63763c2c99",
         "type": "function",
         "z": "3b8d37a6d4b202c3",
@@ -158,40 +97,6 @@
         "wires": [
             [
                 "fc2c2ebfd998e5cf"
-            ]
-        ]
-    },
-    {
-        "id": "0f62fc20e97b853b",
-        "type": "ui_switch",
-        "z": "3b8d37a6d4b202c3",
-        "name": "",
-        "label": "switch",
-        "tooltip": "",
-        "group": "23e3a7733e2f1fdb",
-        "order": 1,
-        "width": "3",
-        "height": "3",
-        "passthru": false,
-        "decouple": "true",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 410,
-        "y": 460,
-        "wires": [
-            [
-                "2e19d7720a79f01d"
             ]
         ]
     },
@@ -231,7 +136,7 @@
         "y": 460,
         "wires": [
             [
-                "0f62fc20e97b853b"
+                "54b69eb140d36d78"
             ]
         ]
     },
@@ -273,8 +178,186 @@
         "y": 520,
         "wires": [
             [
-                "ac6a6a0fb290cc38"
+                "07737afd2e777cb4"
             ]
         ]
+    },
+    {
+        "id": "54b69eb140d36d78",
+        "type": "ui-switch",
+        "z": "3b8d37a6d4b202c3",
+        "name": "",
+        "label": "switch",
+        "group": "125451116b4c3dfe",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "passthru": false,
+        "decouple": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 410,
+        "y": 460,
+        "wires": [
+            [
+                "2e19d7720a79f01d"
+            ]
+        ]
+    },
+    {
+        "id": "07737afd2e777cb4",
+        "type": "ui-colour-picker",
+        "z": "3b8d37a6d4b202c3",
+        "group": "125451116b4c3dfe",
+        "name": "picker",
+        "label": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "rgb",
+        "outformat": "object",
+        "showSwatch": true,
+        "showPicker": false,
+        "showValue": false,
+        "showHue": false,
+        "showAlpha": false,
+        "showLightness": true,
+        "square": "false",
+        "dynOutput": "false",
+        "passthru": false,
+        "className": "",
+        "x": 410,
+        "y": 520,
+        "wires": [
+            [
+                "ec89fe63763c2c99"
+            ]
+        ]
+    },
+    {
+        "id": "e5e35b888e759074",
+        "type": "io7-hub",
+        "name": "app",
+        "host": "mqtt",
+        "useTLS": false,
+        "knownPort": true,
+        "port": "1883",
+        "tls": "",
+        "clientid": ""
+    },
+    {
+        "id": "125451116b4c3dfe",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "c66b78db3c14afed",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "c66b78db3c14afed",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "251710b8503c5a1c",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "7b747dc379a7f2aa",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "251710b8503c5a1c",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "7b747dc379a7f2aa",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "28c238399cf93e32",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-io7": "0.1.9",
+            "@flowfuse/node-red-dashboard": "1.33.0",
+            "node-red-dashboard-2-color-picker": "1.0.0"
+        }
     }
 ]
